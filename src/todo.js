@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 const Todo = () => {
     const [todos, setTodos] = useState([])
@@ -19,6 +19,9 @@ const Todo = () => {
     const removeTodo = (index) => {
         setTodos(prevState => [...prevState.slice(0, index), ...prevState.slice(index + 1)])
     }
+
+    useEffect(() => console.log("first rendered"), [])
+    useEffect(() => console.log("name is...", name), [name])
 
     return (<div>
             <input type="text" onInput={onInput}></input>
