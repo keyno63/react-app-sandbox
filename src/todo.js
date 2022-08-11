@@ -1,51 +1,34 @@
-import React, { Component } from 'react';
+import React, {useState} from 'react';
 
-class Todo extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            todos: [],
-            name: '',
-        }
-    }
+const Todo = () => {
+    const [todos, setTodos] = useState([])
+    const [name, setName] = useState('')
 
-    onInput = (e) => {
+    const onInput = (e) => {
         if (e.target.value !== '') {
-            this.setState({
-                name: e.target.value
-            });
+            setName(e.target.value)
         }
     }
 
-    addTodo = () => {
-        const { todos, name } = this.state;
-        this.setState({
-            todos: [...todos, name]
-        })
+    const addTodo = () => {
+        setTodos(prevState => [...prevState, name])
     }
 
-    removeTodo = (index) => {
-        const { todos, name } = this.state;
-        this.setState({
-            todos: [...todos.slice(0, index), ...todos.slice(index + 1)]
-        })
+    const removeTodo = (index) => {
+        setTodos(prevState => [...prevState.slice(0, index), ...prevState.slice(index + 1)])
     }
 
-    render () {
-        const {todos} = this.state;
-
-        return (<div>
-                <input type="text" onInput={this.onInput}></input>
-                <button onClick={this.addTodo} >登録</button>
-                <ul>
-                    {todos.map((todo, index) => <li key={index}>
-                        {todo}
-                        <button onClick={ () => { this.removeTodo(index) }}>削除</button>
-                    </li>)}
-                </ul>
-            </div>
-        );
-    }
+    return (<div>
+            <input type="text" onInput={onInput}></input>
+            <button onClick={addTodo} >登録</button>
+            <ul>
+                {todos.map((todo, index) => <li key={index}>
+                    {todo}
+                    <button onClick={ () => { removeTodo(index) }}>削除</button>
+                </li>)}
+            </ul>
+        </div>
+    );
 }
 
 export default Todo;
