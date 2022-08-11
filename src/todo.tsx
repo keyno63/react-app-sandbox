@@ -1,12 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {FormEvent, useEffect, useState} from 'react';
 
 const Todo = () => {
-    const [todos, setTodos] = useState([])
-    const [name, setName] = useState('')
+    const [todos, setTodos] = useState<string[]>([])
+    const [name, setName] = useState<string>('')
 
-    const onInput = (e) => {
-        if (!(name === '' && e.target.value === '')) {
-            setName(e.target.value)
+    const onInput = (e: FormEvent<HTMLInputElement>) => {
+        const target = (e.target as HTMLInputElement)
+        if (!(name === '' && target.value === '')) {
+            setName(target.value)
         }
     }
 
@@ -16,7 +17,7 @@ const Todo = () => {
         }
     }
 
-    const removeTodo = (index) => {
+    const removeTodo = (index: number) => {
         setTodos(prevState => [...prevState.slice(0, index), ...prevState.slice(index + 1)])
     }
 

@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {FormEvent, useEffect, useState} from "react";
 
 const FetchApi = () => {
     const [name, setName] = useState('')
@@ -19,8 +19,8 @@ const FetchApi = () => {
         [id]
     )
 
-    const onInput = (e) => {
-        setValue(e.target.value)
+    const onInput = (e: FormEvent<HTMLInputElement>) => {
+        setValue((e.target as HTMLInputElement).value)
     }
 
     const onClick = () => {
