@@ -5,13 +5,15 @@ const Todo = () => {
     const [name, setName] = useState('')
 
     const onInput = (e) => {
-        if (e.target.value !== '') {
+        if (!(name === '' && e.target.value === '')) {
             setName(e.target.value)
         }
     }
 
     const addTodo = () => {
-        setTodos(prevState => [...prevState, name])
+        if (name !== '') {
+            setTodos(prevState => [...prevState, name])
+        }
     }
 
     const removeTodo = (index) => {
