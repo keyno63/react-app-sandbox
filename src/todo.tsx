@@ -21,11 +21,12 @@ const Todo = () => {
         setTodos(prevState => [...prevState.slice(0, index), ...prevState.slice(index + 1)])
     }
 
-    useEffect(() => console.log("first rendered"), [])
-    useEffect(() => console.log("name is...", name), [name])
+    useEffect(() => console.log('first rendered'), [])
+    useEffect(() => console.log('name is...'
+        , name), [name])
 
     return (<div>
-            <input type="text" onInput={onInput}></input>
+            <input type='text' onInput={onInput}></input>
             <button onClick={addTodo} >登録</button>
             <ul>
                 {todos.map((todo, index) => <li key={index}>

@@ -1,4 +1,4 @@
-import {FormEvent, useEffect, useState} from "react";
+import {FormEvent, useEffect, useState} from 'react';
 
 const FetchApi = () => {
     const [name, setName] = useState('')
@@ -30,7 +30,7 @@ const FetchApi = () => {
 
     return (
         <div>
-            <input type="text" onInput={onInput}></input>
+            <input type='text' onInput={onInput}></input>
             <button onClick={onClick}>Do fetch!</button>
             <p>GitHub. ID は[{id}]、名前は[{name}]</p>
         </div>

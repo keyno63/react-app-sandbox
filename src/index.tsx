@@ -4,7 +4,7 @@ import './index.css';
 import Todo from './todo'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import FetchApi from "./featchApi";
+import FetchApi from './featchApi';
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
