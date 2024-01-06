@@ -25,12 +25,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 16.x
-#      - name: npm lint
-#        run: |
-#          npm install
-#          npm run lint
-#        env:
-#          CI: true
+      - name: npm lint
+        run: |
+          npm install
+          npm run lint
+        env:
+          CI: true
       - name: npm test
         run: |
           npm install
